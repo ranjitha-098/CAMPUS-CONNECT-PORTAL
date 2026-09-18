@@ -1,18 +1,24 @@
 import { useState, useEffect } from "react";
 import AuthModule from "./components/AuthModule";
+import StudentPortal from "./components/StudentPortal";
 
 export default function App() {
+  const [activeView, setActiveView] = useState('auth');
   const [activeTab, setActiveTab] = useState('login');
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
-      if (hash ==='#login') {
+      if (hash === '#login') {
+        setActiveView('auth');
         setActiveTab('login');
         scrollToAuth();
       } else if (hash === '#register') {
+        setActiveView('auth');
         setActiveTab('register');
         scrollToAuth();
+      } else if (hash === '#student') {
+        setActiveView('student');
       }
     };
 
@@ -30,7 +36,16 @@ export default function App() {
 
   return(
     <div style={{ padding: '20px 0' }}>
-      <AuthModule key={activeTab} initialMode={activeTab} />
+      {activeView === 'student' ? (
+        <StudentPortal
+          onBackToHome={() => {
+            setActiveView('auth');
+            window.location.hash = 'login';
+          }}
+        />
+      ) : (
+        <AuthModule key={activeTab} initialMode={activeTab} />
+      )}
     </div>  
   );
 }

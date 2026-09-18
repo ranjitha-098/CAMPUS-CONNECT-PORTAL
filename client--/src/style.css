@@ -114,6 +114,7 @@ body {
 .hero-banner h1{
     font-size: 2.5rem;
     margin: 1rem 1rem;
+    color: #ffffff;
 }
 
 .subtitle{
@@ -231,6 +232,24 @@ body {
     color:white;
     font-weight:bold;
     cursor:pointer;
+    transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-portal:hover{
+    filter: brightness(0.9);
+    transform: translateY(-1px);
+}
+
+.student-bg{
+    background-color: var(--student-color);
+}
+
+.faculty-bg{
+    background-color: var(--faculty-color);
+}
+
+.admin-bg{
+    background-color: var(--admin-color);
 }
 
 .student-border{
