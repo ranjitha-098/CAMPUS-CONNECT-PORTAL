@@ -1,5 +1,32 @@
 # React + Vite
 
+## Experiment 5: Modular React Frontend
+
+This project demonstrates a component-based student portal built with React.
+
+### Component Structure
+
+- `StudentPortal.jsx` is the parent component. It owns the active tab, notice selection, assignment statuses, attendance values, and profile data using `useState`.
+- `PortalHeader.jsx` and `PortalTabs.jsx` receive navigation data and event callbacks through props.
+- `NoticeList.jsx`, `AssignmentList.jsx`, `AttendanceTracker.jsx`, and `ProfileCard.jsx` are reusable feature components that render data passed by the parent.
+- `NoticeModal.jsx` is a reusable conditional dialog for viewing notice details.
+
+### React Concepts Demonstrated
+
+- Props pass data and callback functions from `StudentPortal` to child components.
+- State changes through button clicks, controlled form inputs, and form submission.
+- React automatically re-renders the affected interface when state changes.
+- The same list and card patterns are reused for multiple notices, assignments, and courses.
+
+### Run the Application
+
+```bash
+npm install
+npm run dev
+```
+
+Open the local Vite URL, choose **Access Student View**, and test the notices, assignment status, attendance, and profile interactions.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
